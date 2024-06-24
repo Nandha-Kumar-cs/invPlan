@@ -1,0 +1,49 @@
+[08-Jan-2024 09:31:03 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 114303504 bytes) in /home/u225552550/domains/eybus.xyz/public_html/inv/vendor/phpmailer/phpmailer/src/SMTP.php on line 656
+[12-Jan-2024 08:48:44 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 114303560 bytes) in /home/u225552550/domains/eybus.xyz/public_html/inv/vendor/phpmailer/phpmailer/src/SMTP.php on line 656
+[24-Jan-2024 04:34:56 UTC] PHP Warning:  file_get_contents(dutybill.php?sno=2343) [<a href='0function.file-get-contents0'>function.file-get-contents0</a>]: failed to open stream: No such file or directory in /home/u225552550/domains/eybus.xyz/public_html/inv/pdfgen.php on line 29
+[24-Jan-2024 04:34:56 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 04:35:24 UTC] PHP Warning:  file_get_contents(dutybill.php?sno=2343) [<a href='0function.file-get-contents0'>function.file-get-contents0</a>]: failed to open stream: No such file or directory in /home/u225552550/domains/eybus.xyz/public_html/inv/pdfgen.php on line 29
+[24-Jan-2024 04:40:21 UTC] PHP Warning:  file_get_contents(dutybill.php?sno=2343) [<a href='0function.file-get-contents0'>function.file-get-contents0</a>]: failed to open stream: No such file or directory in /home/u225552550/domains/eybus.xyz/public_html/inv/pdfgen.php on line 29
+[24-Jan-2024 04:40:21 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 04:41:04 UTC] PHP Warning:  include(dutybill.php?sno=2343) [<a href='0function.include0'>function.include0</a>]: failed to open stream: No such file or directory in /home/u225552550/domains/eybus.xyz/public_html/inv/pdfgen.php on line 32
+[24-Jan-2024 04:41:04 UTC] PHP Warning:  include(dutybill.php?sno=2343) [<a href='0function.include0'>function.include0</a>]: failed to open stream: No such file or directory in /home/u225552550/domains/eybus.xyz/public_html/inv/pdfgen.php on line 32
+[24-Jan-2024 04:41:04 UTC] PHP Warning:  include() [<a href='0function.include0'>function.include0</a>]: Failed opening 'dutybill.php?sno=2343' for inclusion (include_path='.:/opt/alt/php72/usr/share/pear') in /home/u225552550/domains/eybus.xyz/public_html/inv/pdfgen.php on line 32
+[24-Jan-2024 04:41:13 UTC] PHP Warning:  include(dutybill.php?sno=2343) [<a href='0function.include0'>function.include0</a>]: failed to open stream: No such file or directory in /home/u225552550/domains/eybus.xyz/public_html/inv/pdfgen.php on line 32
+[24-Jan-2024 04:41:13 UTC] PHP Warning:  include(dutybill.php?sno=2343) [<a href='0function.include0'>function.include0</a>]: failed to open stream: No such file or directory in /home/u225552550/domains/eybus.xyz/public_html/inv/pdfgen.php on line 32
+[24-Jan-2024 04:41:13 UTC] PHP Warning:  include() [<a href='0function.include0'>function.include0</a>]: Failed opening 'dutybill.php?sno=2343' for inclusion (include_path='.:/opt/alt/php72/usr/share/pear') in /home/u225552550/domains/eybus.xyz/public_html/inv/pdfgen.php on line 32
+[24-Jan-2024 06:28:09 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:29:40 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:29:59 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:30:29 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:30:41 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:31:17 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:31:36 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:32:17 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:32:39 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:34:34 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:34:56 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:35:14 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:35:24 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:35:36 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:35:49 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:36:04 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:36:16 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:38:44 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:39:02 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:40:39 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:40:58 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:42:01 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 06:42:01 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 49
+[24-Jan-2024 07:05:43 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 52
+[24-Jan-2024 07:05:43 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/pdfgen.php on line 40
+[24-Jan-2024 12:34:11 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 87
+[24-Jan-2024 12:34:11 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/pdfgen.php on line 40
+[25-Jan-2024 07:30:12 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 87
+[25-Jan-2024 07:30:12 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/pdfgen.php on line 36
+[25-Jan-2024 11:15:00 UTC] PHP Notice:  Undefined offset: -1 in /home/u225552550/domains/eybus.xyz/public_html/inv/vendor/mpdf/mpdf/src/CssManager.php on line 1510
+[25-Jan-2024 11:15:37 UTC] PHP Notice:  Undefined offset: -1 in /home/u225552550/domains/eybus.xyz/public_html/inv/vendor/mpdf/mpdf/src/CssManager.php on line 1510
+[25-Jan-2024 11:15:43 UTC] PHP Notice:  Undefined offset: -1 in /home/u225552550/domains/eybus.xyz/public_html/inv/vendor/mpdf/mpdf/src/CssManager.php on line 1510
+[25-Jan-2024 11:15:51 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/dutybill.php on line 90
+[25-Jan-2024 11:15:51 UTC] PHP Notice:  Undefined offset: -1 in /home/u225552550/domains/eybus.xyz/public_html/inv/vendor/mpdf/mpdf/src/CssManager.php on line 1510
+[25-Jan-2024 11:15:51 UTC] PHP Notice:  Undefined index: sno in /home/u225552550/domains/eybus.xyz/public_html/inv/pdfgen.php on line 36
+[09-Mar-2024 10:25:17 UTC] PHP Fatal error:  Cannot declare class PhpOffice\PhpSpreadsheet\IOFactory, because the name is already in use in /home/u225552550/domains/eybus.xyz/public_html/inv/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/IOFactory.php on line 13

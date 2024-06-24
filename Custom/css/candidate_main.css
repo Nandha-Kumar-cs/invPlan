@@ -1,0 +1,751 @@
+		
+		
+
+    .blink {
+    animation: blink-animation 1s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite;	
+    }
+    @keyframes blink-animation {
+    to {
+    visibility: hidden;
+    }
+    }
+    @-webkit-keyframes blink-animation {
+    to {
+    visibility: hidden;
+    }
+	}
+	td.details-control {
+		background: url('./images/eye.png') no-repeat center center;
+		cursor: pointer;
+	}
+	tr.shown td.details-control {
+		background: url('./images/eyecrossed1.png') no-repeat center center;
+	}
+
+	/* For mobile phones: */
+[class*="col-"] {
+    width: 100%;
+}
+@media only screen and (min-width: 500px) {
+    /* For tablets: */
+    .col-m-1 {width: 8.33%;}
+    .col-m-2 {width: 16.66%;}
+    .col-m-3 {width: 25%;}
+    .col-m-4 {width: 33.33%;}
+    .col-m-5 {width: 41.66%;}
+    .col-m-6 {width: 50%;}
+    .col-m-7 {width: 58.33%;}
+    .col-m-8 {width: 66.66%;}
+    .col-m-9 {width: 75%;}
+    .col-m-10 {width: 83.33%;}
+    .col-m-11 {width: 91.66%;}
+    .col-m-12 {width: 100%;}
+}
+@media only screen and (max-width: 600px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+}			
+		
+@media (min-width: 600px) {
+
+.form-inline1 .form-group1 {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+}	 
+
+
+.form-group2 {
+    display: inline-block;
+   
+    
+} 
+@media (min-width: 768px) {
+		.cmb1 { 
+		width:20%;
+		}
+		.cmb2 { 
+		width:10%;
+		} 
+		.cmb3 { 
+		width:10%; 
+		padding-left:1%;
+		}  
+		.txt1 { 
+		width:30%; 
+		padding-left:1.5%; 
+		} 
+		.btn1 { 
+		width:6%; 
+		padding-left:1%;
+		}
+		}
+
+@media (max-width: 767px)
+		{
+
+
+  .btn1{
+	  width:5%;
+   margin-left:0px !important; 
+    margin-top:1%;
+	  } 
+	  
+	  .custom-combobox-input1 {width:100% !important; }  
+      .custom-combobox-input2 {width:100% !important;}  
+	  .custom-combobox-input4 {width:100% !important;}   
+	   .custom-combobox-input5 {width:100% !important;}
+	  .fetchbtn { font-size:11px !important;} 
+	   .chek { padding-left:1% !important; }
+	  .formdiv1 { 
+width:70% !important;
+}	 
+
+.formdiv2 { 
+width:28% !important;
+}	
+		}	
+	
+	@media (max-width: 830px)
+		{
+
+		
+.formdiv1 { 
+width:70% !important;
+}	 
+
+.formdiv2 { 
+width:28% !important;
+}	
+		
+.cmb2 { 
+
+} 
+
+
+
+.txt1 { 
+position:relative !important;
+}
+  
+  
+  .btn1{
+	  width:5%;
+   margin-left:0px !important; 
+    margin-top:1%;
+	  }
+ .fetchbtn { font-size:11px !important;}
+		}	 
+		
+		.combo-label {margin-bottom:.5em;}
+		
+		
+		
+		
+		
+		@media (max-width: 940px)
+		{ 
+	 .actionselected1 {  
+	  display:block !important;
+	 position:relative !important; 
+	 text-align:center; 
+	 left:0px !important ; 
+	 top:0px  !important ;
+	 }   
+	 .actionselected2 { 
+	 display:block !important;
+	 position:relative !important; 
+	 text-align:center; 
+	 left:0px !important ; 
+	 top:0px  !important ;
+	 }
+	 
+	 .adtoli { 
+	 width:100% !important;
+	 } 
+	 .actionbtn { 
+	 width:100% !important;
+	 }
+		} 
+	@media (max-width: 1180px)
+			{ 
+			.chek { 
+		 width:50% !important; 
+		 padding-left:0% !important;
+		 } 
+		 .fetchbtn { font-size:11px !important; 
+		 }			 }
+			
+		
+		
+	.actionselected1 {
+	display:inline-block; 
+   
+    position: absolute;
+    top: 12.5%;
+    left: 61% ; }  
+	
+	.actionselected2 { 
+	display:inline-block; 
+   
+    position: absolute;
+    top: 63%;
+    left: 61% ; 
+	}  
+	@media (max-width: 940px)
+		{ 
+	.adpos { 
+	position:relative !important;
+	}
+		}
+.containerTree {
+            
+            width: 100%;
+        }
+
+		.containerTree h3 { margin-bottom: 5px; }
+
+        #left {
+            display: inline;
+            float: left;
+            width: 48.5%;
+            margin-left:1%;
+			margin-bottom: 10px; 
+			
+		
+        }
+
+        #right {
+            float: left;
+            width: 48%; 
+			 margin-right:2%;
+			margin-bottom: 10px; 
+			
+        }
+
+        #firstTree, #secondTree {
+            font-size: 14px;
+        }
+
+		@media screen and (max-width: 500px) {
+    		#left { width: 270px; }
+			#right {
+				width: 270px;
+                clear: both;
+            }
+        }
+		
+ .ui-autocomplete {
+    max-height: 100px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+  }
+  
+  .custom-combobox1 {
+    position: relative;
+    display: inline-block; 
+	border-radius:3px; 
+	width:85%;
+  }  
+   .custom-combobox2 {
+    position: relative;
+    display: inline-block; 
+	border-radius:3px; 
+	width:84%;
+  }  
+   .custom-combobox3 {
+    position: relative;
+    display: inline-block; 
+	border-radius:3px; 
+	width:77%;
+  } 
+  .custom-combobox5 {
+	    position: relative;
+	    display: inline-block; 
+		border-radius:3px; 
+		width:84%;
+	  } 
+  
+  .custom-combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0; 
+	background: white; 
+	border-top-right-radius:3px; 
+	border-bottom-right-radius:3px;  
+	height:30px;
+  }
+  .custom-combobox-input1 {
+    margin: 0;
+    padding: 3px 6px; 
+	
+	background:white;  
+	 font-size:13px !important;
+	border-top-left-radius:3px; 
+	border-bottom-left-radius:3px; 
+	height:30px; 
+	width:100%;
+  }  
+  
+  .custom-combobox-input1:focus,.custom-combobox-input2:focus,.custom-combobox-input4:focus,.custom-combobox-input5:focus,.iptfocus:focus { 
+  outline:none !important;
+  }
+  
+  .custom-combobox-input2 {
+    margin: 0;
+    padding: 3px 6px; 
+	
+	background:white;  
+	 font-size:13px !important;
+	border-top-left-radius:3px; 
+	border-bottom-left-radius:3px; 
+	height:30px; 
+	width:100%;
+  } 
+  
+  .custom-combobox-input4 {
+    margin: 0;
+    padding: 3px 6px; 
+	
+	background:white;  
+	 font-size:13px !important;
+	border-top-left-radius:3px; 
+	border-bottom-left-radius:3px; 
+	height:30px; 
+	width:100%;
+  }
+
+.custom-combobox-input5 {
+	    margin: 0;
+	    padding: 3px 6px; 
+		
+		background:white;  
+		 font-size:13px !important;
+		border-top-left-radius:3px; 
+		border-bottom-left-radius:3px; 
+		height:30px; 
+		width:100%;
+	  }		
+	.fontcolor { 
+	color:black;
+	}
+
+		
+
+		
+		
+		
+		
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+     /*overflow: auto; Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+  /*  padding: 20px;*/
+    border: 1px solid #888;
+    width: 60%;
+} 
+
+.model-header {
+width: 100%;
+    background-color: #2E353D;
+    /* margin-top: -8px; */
+    /* padding: 1px; */
+    position: relative;
+    /* padding: 0px; */
+    padding-top: 1px;
+    height: 35px; 
+	border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.model-header-title {
+position: absolute;
+    top: -12px;
+    color: white;
+    left: 4px;
+    font-size: 19px !important;
+
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-right: 6px; 
+	opacity:unset !important;
+}
+
+.close:hover,
+.close:focus {
+    color: #2E353D;
+    text-decoration: none;
+    cursor: pointer;
+} 
+
+
+
+
+.btnstyle1 {
+    
+color: white !important;
+    border-radius: 3px;
+    width: 98%;
+    margin-left: 1%;	
+	
+    
+    
+    
+    background-color: #337ab7 !important;
+    
+   
+	
+}  
+
+.actionbtn {  
+color: #337ab7 !important;
+    border-radius: 3px;
+   background-color: white !important;	
+    font-weight:bold;
+	} 
+	
+	
+.btnstyle1:focus {
+	outline:0;
+}
+
+
+
+.btnstyle2 {
+    
+color: white !important;
+    border-radius: 3px;
+    width: 48%;
+    margin-left: 1%;	
+	
+    
+    
+    
+    background-color: #337ab7 !important;
+    
+   
+	
+}  
+
+.btnstyle2:focus {
+	outline:0;
+} 
+
+.serchbtn { 
+color: white !important;
+    border-radius: 3px;
+    width: 48%;
+    margin-left: 1%;	
+	
+    height:34px;
+    
+    
+    background-color: #337ab7 !important;
+}
+
+.serchbtn:focus {
+	outline:0;
+} 
+   
+
+.btnstyle3 { 
+color: white !important;
+    border-radius: 3px;
+    width: 48%;
+    margin-left: 1%;	
+	background-color: #2E353D !important;
+} 
+.btnstyle3:focus {
+	outline:0;
+}
+
+
+
+.formstyle { 
+width: 98%;
+    margin-left: 1%; 
+} 
+
+#foo {
+    position: fixed;
+    bottom: 0;
+    right: 0; 
+	height: 19px;
+    width: 157px; 
+	background-color:black; 
+	color:white;
+  }
+
+
+
+
+
+/* Include the padding and border in an element's total width and height */
+* {
+  box-sizing: border-box;
+}
+
+/* Remove margins and padding from the list */
+ul#myUL {
+  margin:2;
+  padding: 0;
+  height: 9.7% !important;
+  width: 79%;
+  overflow: auto;
+    background: #DCDCDC;
+	    border-radius: 5px;
+	    display: inline-block;
+}
+
+ul#myUL li:hover { 
+background:#337ab7 !important; 
+color:white;
+}
+
+/* Style the list items */
+ul#myUL li { 
+    cursor: pointer;
+    position: relative;
+   background:white; 
+   border-radius:9px;
+	padding:0.4% 2% 0% 0.4%;
+	color:#337ab7;
+    list-style-type: none;
+   
+	border : 1px solid #337ab7; 
+	
+	margin-top:0.3%;
+ margin-left: 0.5%; 
+    font-size: 13px;
+    transition: 0.3s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /*  width: 30% !important; /* 
+    
+   
+	
+    /* height: 16%; */ 
+	
+	display: inline-block; 
+	/* width: 47% !important;/* 
+	
+}
+
+
+
+
+
+
+
+
+/* Style the close button */
+.closebadge {
+      position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 11px 15px 0px 6px;
+    background-image: url(download.jpg);
+}
+
+.closebadge:hover {
+  background-color: #2E353D;
+  color: white;
+}
+
+/* Style the header */
+.header {
+ 
+  
+  text-align: center; 
+  width:50%; 
+  display:inline-block;
+}
+
+
+
+/* Style the input */
+.input {
+ 
+  
+ 
+    float: left;
+    font-size: 14px;
+    width: 100% !important;
+    padding: 0 !important;
+   height: 8%;
+    margin-left: 1%;
+}
+
+/* Style the "Add" button */
+.addBtn {
+  
+  width: 10%;
+    background: #d9d9d9;
+    color: #555;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: 1%;
+    height: 4%;
+    padding: 0 !important;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+} 
+
+.glyphicon-remove { 
+position: absolute !important;
+}
+
+
+
+
+      
+		
+		
+		
+		
+		
+		
+		
+		
+.fragment {
+    font-size: 1em;
+    font-family: tahoma;
+    height:auto;
+    border: 1px solid #ccc;
+    color: #555;
+    display: block;
+    width:7em;
+}
+
+.fragment h3 {
+    padding: 0;
+    margin: 0;
+    color: #369;
+}
+
+#close {
+    float:right;
+    display:inline-block;
+    padding:2px 5px;
+}
+
+.sub-entry {
+    width: 50%;
+    float: left;
+}
+
+
+#tree {
+   margin-bottom:80px;
+}
+
+
+
+
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+
+
+
+
+
+

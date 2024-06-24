@@ -1,0 +1,90 @@
+body {
+  padding: 2% 9%;
+  font-family: sans-serif;
+}
+.first-div {
+  position: absolute;
+  margin-bottom: 200px;
+}
+.logo {
+  position: relative;
+  text-align: right;
+}
+.companyName1 {
+  position: relative;
+  left: 20px;
+}
+.companyName2 {
+  position: relative;
+  left: 20px;
+}
+.address1 {
+  position: relative;
+  left: 20px;
+}
+.header {
+  text-align: center;
+}
+table {
+  margin-left: 40px;
+}
+.third-div {
+  position: relative;
+  left: 50px;
+  margin-bottom: 10px;
+}
+.fourth-div {
+  position: relative;
+  left: 30px;
+}
+.underline {
+  text-decoration: underline;
+  font-weight: bold;
+}
+.sign {
+  position: relative;
+  bottom: 30px;
+}
+.bold {
+  font-weight: bold;
+}
+.sign {
+  position: relative;
+  width: 150px;
+  left: 20px;
+}
+.sign-name {
+  position: relative;
+  bottom: 30px;
+}
+.seal-img {
+  position: absolute;
+  width: 120px;
+  top: 780px;
+  left: 290px;
+}
+.seal {
+  margin: 0;
+}
+hr {
+  border-style: solid;
+  border-color: #1F4690;
+}
+.mail {
+  color: #590696;
+}
+.bottom-footer {
+  text-align: center;
+  color: red;
+font-size : 10px;
+}
+@page {
+    size: auto;   /* auto is the initial value */
+    margin: 0;  /* this affects the margin in the printer settings */
+}
+.company-name  {
+  font-weight: bold;
+}
+.address{
+  font-weight: bold;
+}

@@ -1,0 +1,63 @@
+body {
+  padding : 100px;
+}
+
+.bold {
+font-weight: bold;
+}
+.underline {
+text-decoration: underline;
+font-size: 15px;
+}
+.first-div {
+text-align: center;
+position: relative;
+left: 200px;
+top:40px;
+display: inline;
+}
+@page {
+size: auto;   /* auto is the initial value */
+margin: 0;  /* this affects the margin in the printer settings */
+}
+.logo {
+position: absolute;
+right: 80px;
+}
+.logo-img {
+width: 140px;
+}
+.second-div {
+position: relative;
+top: 80px;
+background-color: #D0C9C0;
+}
+.i {
+padding: 0px 10px 0px 5px;
+border: 1px solid;
+}
+.date {
+float: right;
+}
+@media print {
+.second-div {
+   background-color: #D0C9C0 !important;
+   -webkit-print-color-adjust: exact;
+}
+}
+.third-div {
+position: relative;
+top: 100px;
+}
+.address {
+position: relative;
+left: 30px;
+}
+.fourth-div {
+float:right;
+margin-right: 20px;
+}
+.fifth-div {
+position:relative;
+top : 200px;
+}

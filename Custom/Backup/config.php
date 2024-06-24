@@ -18,7 +18,7 @@ $Send_email="dhruva.tp@gmail.com";
  
 
 /* Database configuration. */
-define('DATABASE_USER', 'u225552550_inv');
+define('DATABASE_USER', 'root');
 define('DATABASE_PASS', 'Inv@12345');
 define('DATABASE_HOST', 'localhost');
 define('DATABASE_NAME', 'u225552550_inv');

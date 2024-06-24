@@ -1,0 +1,35 @@
+## Run InvoicePlane in a subfolder
+## If you are using a subfolder please remove the hash in front of the line ‘#RewriteBase /subfolder’
+## and replace ‘subfolder’ with the actual name of your folder, i.e. ‘RewriteBase /invoices’
+
+<IfModule mod_rewrite.c>
+
+  RewriteEngine On
+  #RewriteBase /subfolder
+  RewriteRule ^index\.php$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.php [L]
+  
+  ## Remove the hash in front of the following two lines if you want to force HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+  
+</IfModule>
+
+# supress php errors
+    php_flag display_startup_errors off
+    php_flag display_errors off
+    php_value docref_root 0
+    php_value docref_ext 0
+
+
+    # enable PHP error logging
+    php_flag  log_errors on
+    php_value error_log  ./PHP_errors.log
+
+
+    # general directive for setting php error level
+    php_value error_reporting -1
+
+

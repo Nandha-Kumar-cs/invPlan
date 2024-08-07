@@ -71,6 +71,8 @@ class Mdl_Sessions extends CI_Model
                 $session_data = array(
                     'user_type' => $user->user_type,
                     'user_id' => $user->user_id,
+                    'dept_type' => $user->dept_type,
+                    'privilege'=>$user->privilege,
                     'user_name' => $user->user_name,
                     'user_email' => $user->user_email,
                     'user_company' => $user->user_company,

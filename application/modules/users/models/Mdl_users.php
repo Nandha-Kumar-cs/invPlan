@@ -27,7 +27,16 @@ class Mdl_Users extends Response_Model
     {
         return array(
             '1' => trans('administrator'),
-            '2' => trans('guest_read_only')
+            '2' => trans('guest_read_only'),
+            '3' => trans('user')
+        );
+    }
+
+    public function dept_types()
+    {
+        return array(
+         '1' => trans('Mechanical'),
+         '2' => trans('Electrical')
         );
     }
 
@@ -51,6 +60,13 @@ class Mdl_Users extends Response_Model
                 'field' => 'user_type',
                 'label' => trans('user_type'),
                 'rules' => 'required'
+            ),
+            'dept_type' => array(
+                'field' => 'dept_type',
+                'rules' => 'required'
+            ),
+            'privilege' => array(
+                'field' => 'privilege'
             ),
             'user_email' => array(
                 'field' => 'user_email',
@@ -143,6 +159,12 @@ class Mdl_Users extends Response_Model
                 'field' => 'user_type',
                 'label' => trans('user_type'),
                 'rules' => 'required'
+            ),
+            'dept_type' => array(
+                'field' => 'dept_type'
+            ),
+           'privilege' => array(
+                'field' => 'privilege'
             ),
             'user_email' => array(
                 'field' => 'user_email',

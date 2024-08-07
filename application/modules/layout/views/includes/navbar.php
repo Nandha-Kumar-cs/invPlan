@@ -6,13 +6,18 @@
                 <?php echo trans('menu') ?> &nbsp; <i class="fa fa-bars"></i>
             </button>
         </div>
-
+    <?php //print_r($_SESSION); 
+    $privilege = explode(',',$_SESSION['privilege']);
+    
+    ?>
         <div class="collapse navbar-collapse" id="ip-navbar-collapse">
             <ul class="nav navbar-nav">
+            <?php if($_SESSION['user_type'] != 3): ?>    
                 <li><?php echo anchor('dashboard', trans('dashboard'), 'class="hidden-md"') ?>
                     <?php echo anchor('dashboard', '<i class="fa fa-dashboard"></i>', 'class="visible-md-inline-block"') ?>
                 </li>
-
+            <?php endif; ?>
+            <?php if($_SESSION['user_type'] == 1 || in_array('clients',$privilege) ): ?> 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-caret-down"></i> &nbsp;
@@ -24,7 +29,8 @@
                         <li><?php echo anchor('clients/index', trans('view_clients')); ?></li>
                     </ul>
                 </li>
-
+            <?php endif; ?>
+            <?php if($_SESSION['user_type'] == 1 || in_array('quotes',$privilege)): ?> 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-caret-down"></i> &nbsp;
@@ -36,7 +42,8 @@
                         <li><?php echo anchor('quotes/index', trans('view_quotes')); ?></li>
                     </ul>
                 </li>
-
+            <?php endif; ?>
+            <?php if($_SESSION['user_type'] == 1 || in_array('invoices',$privilege)): ?> 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-caret-down"></i> &nbsp;
@@ -49,7 +56,8 @@
                         <li><?php echo anchor('invoices/recurring/index', trans('view_recurring_invoices')); ?></li>
                     </ul>
                 </li>
-
+            <?php endif; ?>
+            <?php if($_SESSION['user_type'] == 1 ||in_array('payments',$privilege)): ?> 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-caret-down"></i> &nbsp;
@@ -62,7 +70,8 @@
                         <li><?php echo anchor('payments/online_logs', trans('view_payment_logs')); ?></li>
                     </ul>
                 </li>
-
+            <?php endif; ?>
+            <?php if($_SESSION['user_type'] == 1 ||in_array('products',$privilege)): ?> 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-caret-down"></i> &nbsp;
@@ -76,7 +85,8 @@
                         <li><?php echo anchor('units/index', trans('product_units')); ?></li>
                     </ul>
                 </li>
-
+            <?php endif; ?>
+            <?php if($_SESSION['user_type'] == 1 ||in_array('tasks',$privilege)): ?> 
                 <li class="dropdown <?php echo get_setting('projects_enabled') == 1 ?: 'hidden'; ?>">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-caret-down"></i> &nbsp;
@@ -89,7 +99,8 @@
                         <li><?php echo anchor('projects/index', trans('projects')); ?></li>
                     </ul>
                 </li>
-
+            <?php endif; ?>
+            <?php if($_SESSION['user_type'] == 1 ||in_array('reports',$privilege)): ?> 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-caret-down"></i> &nbsp;
@@ -106,6 +117,8 @@
 
                     </ul>
                 </li>
+            <?php endif; ?>
+            <?php if($_SESSION['user_type'] == 1 ||in_array('po',$privilege)): ?> 
 	        	<li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-caret-down"></i> &nbsp;
@@ -121,9 +134,8 @@
 
                     </ul>
                 </li>
-
-                
-
+            <?php endif; ?>
+            <?php if($_SESSION['user_type'] == 1 ||in_array('Duty Slip',$privilege)): ?> 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-caret-down"></i> &nbsp;
@@ -137,8 +149,7 @@
 
                     </ul>
                 </li>
-
-
+            <?php endif; ?>
 
 
             </ul>
@@ -154,6 +165,7 @@
             <?php } ?>
 
             <ul class="nav navbar-nav navbar-right">
+                <?php if($_SESSION['user_type'] != 3): ?>
                 <li>
                     <a href="http://docs.invoiceplane.com/" target="_blank"
                        class="tip icon" title="<?php _trans('documentation'); ?>"
@@ -205,8 +217,9 @@
                             ?></span>
                     </a>
                 </li>
-                
+                <?php endif; ?>
                 <li>
+                    <?php //print_r();  ?>
                     <a href="<?php echo site_url('sessions/logout'); ?>"
                        class="tip icon logout" data-placement="bottom"
                        title="<?php _trans('logout'); ?>">

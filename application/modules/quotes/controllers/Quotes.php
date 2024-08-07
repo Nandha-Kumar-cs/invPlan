@@ -23,6 +23,21 @@ class Quotes extends Admin_Controller
         parent::__construct();
 
         $this->load->model('mdl_quotes');
+        $this->load->model('user_clients/mdl_user_clients');
+
+        if($_SESSION['user_type'] == 3){
+            $user_clients = $this->mdl_user_clients->assigned_to($this->session->userdata('user_id'))->get()->result();
+    
+            if (!$user_clients) {
+                show_error(trans('guest_account_denied'), 403);
+                exit;
+            }
+    
+            foreach ($user_clients as $user_client) {
+                $this->user_clients[$user_client->client_id] = $user_client->client_id;
+            }
+        }
+      
     }
 
     public function index()
@@ -38,25 +53,51 @@ class Quotes extends Admin_Controller
     public function status($status = 'all', $page = 0)
     {
         // Determine which group of quotes to load
-        switch ($status) {
-            case 'draft':
-                $this->mdl_quotes->is_draft();
-                break;
-            case 'sent':
-                $this->mdl_quotes->is_sent();
-                break;
-            case 'viewed':
-                $this->mdl_quotes->is_viewed();
-                break;
-            case 'approved':
-                $this->mdl_quotes->is_approved();
-                break;
-            case 'rejected':
-                $this->mdl_quotes->is_rejected();
-                break;
-            case 'canceled':
-                $this->mdl_quotes->is_canceled();
-                break;
+        if ($_SESSION['user_type'] == 3){
+            switch ($status) {
+                case 'all':
+                    $this->mdl_quotes->where_in('ip_quotes.client_id', $this->user_clients);
+                    break;
+                case 'draft':
+                    $this->mdl_quotes->is_draft()->where_in('ip_quotes.client_id', $this->user_clients);
+                    break;
+                case 'sent':
+                    $this->mdl_quotes->is_sent()->where_in('ip_quotes.client_id', $this->user_clients);
+                    break;
+                case 'viewed':
+                    $this->mdl_quotes->is_viewed()->where_in('ip_quotes.client_id', $this->user_clients);
+                    break;
+                case 'approved':
+                    $this->mdl_quotes->is_approved()->where_in('ip_quotes.client_id', $this->user_clients);
+                    break;
+                case 'rejected':
+                    $this->mdl_quotes->is_rejected()->where_in('ip_quotes.client_id', $this->user_clients);
+                    break;
+                case 'canceled':
+                    $this->mdl_quotes->is_canceled()->where_in('ip_quotes.client_id', $this->user_clients);
+                    break;
+            }
+        }else{     
+            switch ($status) {
+                case 'draft':
+                    $this->mdl_quotes->is_draft();
+                    break;
+                case 'sent':
+                    $this->mdl_quotes->is_sent();
+                    break;
+                case 'viewed':
+                    $this->mdl_quotes->is_viewed();
+                    break;
+                case 'approved':
+                    $this->mdl_quotes->is_approved();
+                    break;
+                case 'rejected':
+                    $this->mdl_quotes->is_rejected();
+                    break;
+                case 'canceled':
+                    $this->mdl_quotes->is_canceled();
+                    break;
+            }
         }
 
         $this->mdl_quotes->paginate(site_url('quotes/status/' . $status), $page);

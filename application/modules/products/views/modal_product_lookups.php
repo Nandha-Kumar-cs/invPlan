@@ -121,17 +121,36 @@
 
             <div class="form-inline">
                 <div class="form-group filter-form">
-                    <select name="filter_family" id="filter_family" class="form-control simple-select">
+                   <?php //print_r($_SESSION);?>
+                   <select name="filter_family" id="filter_family" class="form-control simple-select">
                         <option value=""><?php _trans('any_family'); ?></option>
-                        <?php foreach ($families as $family) { ?>
-                            <option value="<?php echo $family->family_id; ?>"
-                                <?php if (isset($filter_family) && $family->family_id == $filter_family) {
-                                    echo ' selected="selected"';
-                                } ?>>
-                                <?php _htmlsc($family->family_name); ?>
-                            </option>
-                        <?php } ?>
+                        <?php 
+                        foreach ($families as $family) { 
+                            if (isset( $_SESSION['dept_type']) && $_SESSION['dept_type'] == 1 && in_array($family->family_id, [1, 3])) { ?>
+                                <option value="<?php echo $family->family_id; ?>"
+                                    <?php if (isset($filter_family) && $family->family_id == $filter_family) {
+                                        echo ' selected="selected"';
+                                    } ?>>
+                                    <?php _htmlsc($family->family_name); ?>
+                                </option>
+                            <?php } elseif (isset( $_SESSION['dept_type']) && $_SESSION['dept_type'] == 2 && in_array($family->family_id, [2, 4])) { ?>
+                                <option value="<?php echo $family->family_id; ?>"
+                                    <?php if (isset($filter_family) && $family->family_id == $filter_family) {
+                                        echo ' selected="selected"';
+                                    } ?>>
+                                    <?php _htmlsc($family->family_name); ?>
+                                </option>
+                            <?php } elseif ($_SESSION['user_type'] != 3) { ?>
+                                <option value="<?php echo $family->family_id; ?>"
+                                    <?php if (isset($filter_family) && $family->family_id == $filter_family) {
+                                        echo ' selected="selected"';
+                                    } ?>>
+                                    <?php _htmlsc($family->family_name); ?>
+                                </option>
+                            <?php }
+                        } ?>
                     </select>
+
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" name="filter_product" id="filter_product"

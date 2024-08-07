@@ -45,11 +45,15 @@ class Sessions extends Base_Controller
                 } else {
 
                     if ($this->authenticate($this->input->post('email'), $this->input->post('password'))) {
-                        if ($this->session->userdata('user_type') == 1) {
+                        if ($this->session->userdata('user_type') == 1 ) {
                             redirect('dashboard');
                         } elseif ($this->session->userdata('user_type') == 2) {
                             redirect('guest');
+                        } elseif($this->session->userdata('user_type') == 3){
+                            // redirect('quotes');
+                            print_r($_SESSION['privilege']);
                         }
+                        
                     } else {
                         $this->session->set_flashdata('alert_error', trans('loginalert_credentials_incorrect'));
                         redirect('sessions/login');

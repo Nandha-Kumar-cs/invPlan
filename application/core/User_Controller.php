@@ -28,7 +28,7 @@ class User_Controller extends Base_Controller
     {
         parent::__construct();
 
-        if ($this->session->userdata($required_key) != $required_val) {
+        if ($this->session->userdata($required_key) != $required_val && $this->session->userdata($required_key) != 3) {
             redirect('sessions/login');
         }
     }

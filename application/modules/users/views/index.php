@@ -30,14 +30,19 @@
             </thead>
 
             <tbody>
+                <?php //print_r($_SESSION);?>
             <?php foreach ($users as $user) { ?>
                 <tr>
                     <td><?php _htmlsc($user->user_name); ?></td>
-                    <td><?php echo $user_types[$user->user_type]; ?></td>
+                    <td><?php echo $user_types[$user->user_type];
+                            if ($user->user_type != 1) :
+                                echo " (".$dept_types[$user->dept_type].")";
+                            endif; ?>
+                    </td>
                     <td><?php echo $user->user_email; ?></td>
                     <td>
                         <div class="options btn-group btn-group-sm">
-                            <?php if ($user->user_type == 2) : ?>
+                            <?php if ($user->user_type != 1) : ?>
                                 <a href="<?php echo site_url('user_clients/user/' . $user->user_id); ?>"
                                    class="btn btn-default">
                                     <i class="fa fa-list fa-margin"></i> <?php _trans('assigned_clients'); ?>

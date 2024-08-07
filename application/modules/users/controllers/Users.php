@@ -35,6 +35,7 @@ class Users extends Admin_Controller
 
         $this->layout->set('users', $users);
         $this->layout->set('user_types', $this->mdl_users->user_types());
+        $this->layout->set('dept_types', $this->mdl_users->dept_types());
         $this->layout->buffer('content', 'users/index');
         $this->layout->render();
     }
@@ -53,13 +54,14 @@ class Users extends Admin_Controller
 
             $this->load->model('custom_fields/mdl_user_custom');
             $this->mdl_user_custom->save_custom($id, $this->input->post('custom'));
-
             // Update the session details if the logged in user edited his account
             if ($this->session->userdata('user_id') == $id) {
                 $new_details = $this->mdl_users->get_by_id($id);
 
                 $session_data = array(
                     'user_type' => $new_details->user_type,
+                    'dept_type' => $new_details->dept_type,
+                    'privilege' => $new_details->privilege,
                     'user_id' => $new_details->user_id,
                     'user_name' => $new_details->user_name,
                     'user_email' => $new_details->user_email,
@@ -137,6 +139,7 @@ class Users extends Admin_Controller
             array(
                 'id' => $id,
                 'user_types' => $this->mdl_users->user_types(),
+                'dept_types' => $this->mdl_users->dept_types(),
                 'user_clients' => $this->mdl_user_clients->where('ip_user_clients.user_id', $id)->get()->result(),
                 'custom_fields' => $custom_fields,
                 'custom_values' => $custom_values,

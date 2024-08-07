@@ -1,5 +1,6 @@
 <?php
 $cv = $this->controller->view_data["custom_values"];
+// print_r($_SESSION);
 ?>
 <script>
     $(function () {
@@ -12,6 +13,7 @@ $cv = $this->controller->view_data["custom_values"];
         function show_fields() {
             $('#administrator_fields').hide();
             $('#guest_fields').hide();
+            $("#userPrivilege").hide();
 
             var user_type = $('#user_type').val();
 
@@ -19,6 +21,8 @@ $cv = $this->controller->view_data["custom_values"];
                 $('#administrator_fields').show();
             } else if (user_type === '2') {
                 $('#guest_fields').show();
+            } else if (user_type === '3'){
+                $("#userPrivilege").show();
             }
         }
 
@@ -30,8 +34,21 @@ $cv = $this->controller->view_data["custom_values"];
         $('#add-user-client-modal').click(function () {
             <?php $user_id = isset($id) ? $id : ''; ?>
             $('#modal-placeholder').load("<?php echo site_url('users/ajax/modal_add_user_client/' . $user_id); ?>");
+
         });
+
+            // Call updateHiddenInput on page load and whenever selection changes
+            updateHiddenInput();
+            $('#privilege_string').change(updateHiddenInput);
     });
+
+     // Function to update hidden input with comma-separated values
+     function updateHiddenInput() {
+        var selectedValues = $('#privilege_string').val();
+        $('#privilege').val(selectedValues ? selectedValues.join(',') : '');
+    }
+
+
 </script>
 
 <form method="post">
@@ -122,7 +139,7 @@ $cv = $this->controller->view_data["custom_values"];
                                     <?php } ?>
                                 </select>
                             </div>
-
+                            <?php //print_r($this->mdl_users->form_value('clients')) ?>
                             <div class="form-group">
                                 <label for="user_type">
                                     <?php _trans('user_type'); ?>
@@ -135,6 +152,47 @@ $cv = $this->controller->view_data["custom_values"];
                                         </option>
                                     <?php } ?>
                                 </select>
+                             
+                                <div class="checkbox-group " id="userPrivilege">
+                                    <?php 
+                                    // Get the privilege string
+                                    $privilege_string = $this->mdl_users->form_value('privilege');
+
+                                    // Convert the privilege string to an array
+                                    $selected_privileges = explode(',', $privilege_string);
+
+                                    // Define privilege options
+                                    $privilege_options = [
+                                        'clients' => 'Clients',
+                                        'quotes' => 'Quotes',
+                                        'invoices' => 'Invoices',
+                                        'payments' => 'Payments',
+                                        'products' => 'Products',
+                                        'reports' => 'Reports',
+                                        'incomingpo' => 'Incoming PO',
+                                        'dutyslip' => 'Duty Slip'
+                                    ];
+                                    ?>
+                                    <label for="privilege">privilege</label>
+                                    <select multiple="multiple" name="privilege_string[]" id="privilege_string" class="form-control simple-select">
+                                        <?php foreach ($privilege_options as $key => $label): ?>
+                                            <option value="<?php echo $key; ?>" <?php echo in_array($key, $selected_privileges) ? 'selected' : ''; ?>><?php echo _trans($label); ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <input type="hidden" name="privilege" id="privilege" value="<?php echo $privilege_string; ?>">
+                                </div>
+                                <label for="dept_type">
+                                    <?php _trans('Department type'); ?>
+                                </label>
+                                    <select name="dept_type" id="dept_type" class="form-control simple-select">
+                                    <?php foreach ($dept_types as $key => $type) { ?>
+                                        <option value="<?php echo $key; ?>"
+                                            <?php check_select($this->mdl_users->form_value('dept_type'), $key); ?>>
+                                            <?php echo $type; ?>
+                                        </option>
+                                    <?php } ?>
+                                    </select>
+                                
                             </div>
                         </div>
 

@@ -17,7 +17,7 @@ if (!defined('BASEPATH')) {
  */
 class Admin_Controller extends User_Controller
 {
-
+    public $user_clients = [];
     /**
      * Admin_Controller constructor.
      */

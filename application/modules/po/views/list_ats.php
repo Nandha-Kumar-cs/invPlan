@@ -2,6 +2,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/scroller/2.0.0/css/scroller.dataTables.min.css">
 <script type="text/javascript" language="javascript" src="../../Custom/jq/jquery.dataTables.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/scroller/2.0.0/js/dataTables.scroller.min.js"></script>
+<!-- Feat Pagalaven -->
 
 <style type="text/css" class="init">
 td.details-control

@@ -1,10 +1,10 @@
 <?php
 echo "Test";
 
-$mysqlUserName      = "u225552550_tracm";
-    $mysqlPassword      = "Tracm@123";
+$mysqlUserName      = "root";
+    $mysqlPassword      = "";
     $mysqlHostName      = "localhost";
-	$DbName				= "u225552550_tracm";
+	$DbName				= "invplane";
 	$con = new mysqli($mysqlHostName, $mysqlUserName, $mysqlPassword, $DbName); 
 	if (mysqli_connect_errno())
 		  {

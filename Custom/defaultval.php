@@ -1,7 +1,7 @@
 <?php
 	$mysqlUserName      = "root";
-    $mysqlPassword      = "987654321";
+    $mysqlPassword      = "";
     $mysqlHostName      = "localhost";
-	$DbName				= "invoiceplane";
+	$DbName				= "invplane";
 	$url				= "http://localhost/PO";
 ?>

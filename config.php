@@ -1,6 +1,6 @@
 <?php 
     $db_username="root";
-    $db="localhost";
+    $db="invplane";
     $db_password="";
     $conn=new mysqli("localhost", "$db_username", "$db_password", "$db"); 
     if (mysqli_connect_errno())

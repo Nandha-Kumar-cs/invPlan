@@ -1,5 +1,6 @@
 <?php
-if (!defined('BASEPATH')) exit('No direct script access allowed');
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 
 /*
  * InvoicePlane
@@ -29,17 +30,21 @@ class Ajax extends Admin_Controller
 
         $this->mdl_invoices->set_id($invoice_id);
 
-        if ($this->mdl_invoices->run_validation('validation_rules_save_invoice')) {
+        if ($this->mdl_invoices->run_validation('validation_rules_save_invoice'))
+        {
             $items = json_decode($this->input->post('items'));
 
-            foreach ($items as $item) {
+            foreach ($items as $item)
+            {
                 // Check if an item has either a quantity + price or name or description
-                if (!empty($item->item_name)) {
+                if (!empty($item->item_name))
+                {
                     $item->item_quantity = ($item->item_quantity ? standardize_amount($item->item_quantity) : floatval(0));
                     $item->item_price = ($item->item_quantity ? standardize_amount($item->item_price) : floatval(0));
                     $item->item_discount_amount = ($item->item_discount_amount) ? standardize_amount($item->item_discount_amount) : null;
                     $item->item_product_id = ($item->item_product_id ? $item->item_product_id : null);
-                    if (property_exists($item, 'item_date')) {
+                    if (property_exists($item, 'item_date'))
+                    {
                         $item->item_date = ($item->item_date ? date_to_mysql($item->item_date) : null);
                     }
                     $item->item_product_unit_id = ($item->item_product_unit_id ? $item->item_product_unit_id : null);
@@ -47,15 +52,18 @@ class Ajax extends Admin_Controller
                     $item_id = ($item->item_id) ?: null;
                     unset($item->item_id);
 
-                    if (!$item->item_task_id) {
+                    if (!$item->item_task_id)
+                    {
                         unset($item->item_task_id);
-                    } else {
+                    } else
+                    {
                         $this->load->model('tasks/mdl_tasks');
                         $this->mdl_tasks->update_status(4, $item->item_task_id);
                     }
 
                     $this->mdl_items->save($item_id, $item);
-                } elseif (empty($item->item_name) && (!empty($item->item_quantity) || !empty($item->item_price))) {
+                } elseif (empty($item->item_name) && (!empty($item->item_quantity) || !empty($item->item_price)))
+                {
                     // Throw an error message and use the form validation for that
                     $this->load->library('form_validation');
                     $this->form_validation->set_rules('item_name', trans('item'), 'required');
@@ -75,22 +83,27 @@ class Ajax extends Admin_Controller
 
             $invoice_status = $this->input->post('invoice_status_id');
 
-            if ($this->input->post('invoice_discount_amount') === '') {
+            if ($this->input->post('invoice_discount_amount') === '')
+            {
                 $invoice_discount_amount = floatval(0);
-            } else {
+            } else
+            {
                 $invoice_discount_amount = $this->input->post('invoice_discount_amount');
             }
 
-            if ($this->input->post('invoice_discount_percent') === '') {
+            if ($this->input->post('invoice_discount_percent') === '')
+            {
                 $invoice_discount_percent = floatval(0);
-            } else {
+            } else
+            {
                 $invoice_discount_percent = $this->input->post('invoice_discount_percent');
             }
 
             // Generate new invoice number if needed
             $invoice_number = $this->input->post('invoice_number');
 
-            if (empty($invoice_number) && $invoice_status != 1) {
+            if (empty($invoice_number) && $invoice_status != 1)
+            {
                 $invoice_group_id = $this->mdl_invoices->get_invoice_group_id($invoice_id);
                 $invoice_number = $this->mdl_invoices->get_invoice_number($invoice_group_id);
             }
@@ -108,8 +121,10 @@ class Ajax extends Admin_Controller
             ];
 
             // check if status changed to sent, the feature is enabled and settings is set to sent
-            if ($this->config->item('disable_read_only') === false) {
-                if ($invoice_status == get_setting('read_only_toggle')) {
+            if ($this->config->item('disable_read_only') === false)
+            {
+                if ($invoice_status == get_setting('read_only_toggle'))
+                {
                     $db_array['is_read_only'] = 1;
                 }
             }
@@ -117,7 +132,8 @@ class Ajax extends Admin_Controller
             $this->mdl_invoices->save($invoice_id, $db_array);
             $sumexInvoice = $this->mdl_invoices->where('sumex_invoice', $invoice_id)->get()->num_rows();
 
-            if ($sumexInvoice >= 1) {
+            if ($sumexInvoice >= 1)
+            {
                 $sumex_array = [
                     'sumex_invoice' => $invoice_id,
                     'sumex_reason' => $this->input->post('invoice_sumex_reason'),
@@ -138,7 +154,8 @@ class Ajax extends Admin_Controller
             $response = [
                 'success' => 1,
             ];
-        } else {
+        } else
+        {
             $this->load->helper('json_error');
             $response = [
                 'success' => 0,
@@ -147,59 +164,66 @@ class Ajax extends Admin_Controller
         }
 
         // Save all custom fields
-        if ($this->input->post('custom')) {
+        if ($this->input->post('custom'))
+        {
             $db_array = [];
 
             $values = [];
-            foreach ($this->input->post('custom') as $custom) {
-                if (preg_match("/^(.*)\[\]$/i", $custom['name'], $matches)) {
+            foreach ($this->input->post('custom') as $custom)
+            {
+                if (preg_match("/^(.*)\[\]$/i", $custom['name'], $matches))
+                {
                     $values[$matches[1]][] = $custom['value'];
-                } else {
+                } else
+                {
                     $values[$custom['name']] = $custom['value'];
                 }
             }
 
-            foreach ($values as $key => $value) {
+            foreach ($values as $key => $value)
+            {
                 preg_match("/^custom\[(.*?)\](?:\[\]|)$/", $key, $matches);
-                if ($matches) {
+                if ($matches)
+                {
                     $db_array[$matches[1]] = $value;
                 }
-                    $cfinv2="SELECT * FROM `ip_invoice_custom` WHERE `invoice_id`=".$invoice_id." AND `invoice_custom_fieldid`=".$matches[1];
-             $reqdata=$this->db->query($cfinv2);
-             $queryCount = count($reqdata->result_array());
-             $cfinv3="SELECT * FROM `ip_custom_fields` WHERE `custom_field_type` LIKE '%DATE%' AND `custom_field_id`=".$matches[1];
-             $reqdata1=$this->db->query($cfinv3);
-             $queryCount2 = count($reqdata1->result_array());
-             if($queryCount2==1)
-             {
-                $var = $value;
-                $date = str_replace('/', '-', $var);
-                $value= date('Y-m-d', strtotime($date));
-             }
-             if($queryCount==1){
-                if($value!="")
-                 {
-                    $cfinv2="UPDATE `ip_invoice_custom` SET `invoice_custom_fieldvalue` = '".$value."'  WHERE `invoice_id`=".$invoice_id." AND `invoice_custom_fieldid`=".$matches[1];
-                    $reqdata=$this->db->query($cfinv2);
-                }
-                }
-                else
+                $cfinv2 = "SELECT * FROM `ip_invoice_custom` WHERE `invoice_id`=" . $invoice_id . " AND `invoice_custom_fieldid`=" . $matches[1];
+                $reqdata = $this->db->query($cfinv2);
+                $queryCount = count($reqdata->result_array());
+                $cfinv3 = "SELECT * FROM `ip_custom_fields` WHERE `custom_field_type` LIKE '%DATE%' AND `custom_field_id`=" . $matches[1];
+                $reqdata1 = $this->db->query($cfinv3);
+                $queryCount2 = count($reqdata1->result_array());
+                if ($queryCount2 == 1)
                 {
-                    if($value!="")
-                 {
-                    $cfinv2="INSERT INTO `ip_invoice_custom`( `invoice_id`, `invoice_custom_fieldid`, `invoice_custom_fieldvalue`) VALUES (".$invoice_id.",".$matches[1].",'".$value."');";
-                    $reqdata=$this->db->query($cfinv2);
+                    $var = $value;
+                    $date = str_replace('/', '-', $var);
+                    $value = date('Y-m-d', strtotime($date));
                 }
-                    
+                if ($queryCount == 1)
+                {
+                    if ($value != "")
+                    {
+                        $cfinv2 = "UPDATE `ip_invoice_custom` SET `invoice_custom_fieldvalue` = '" . $value . "'  WHERE `invoice_id`=" . $invoice_id . " AND `invoice_custom_fieldid`=" . $matches[1];
+                        $reqdata = $this->db->query($cfinv2);
+                    }
+                } else
+                {
+                    if ($value != "")
+                    {
+                        $cfinv2 = "INSERT INTO `ip_invoice_custom`( `invoice_id`, `invoice_custom_fieldid`, `invoice_custom_fieldvalue`) VALUES (" . $invoice_id . "," . $matches[1] . ",'" . $value . "');";
+                        $reqdata = $this->db->query($cfinv2);
+                    }
+
                 }
-            
+
             }
 
 
             //$this->load->model('custom_fields/mdl_invoice_custom');
             //$result = $this->mdl_invoice_custom->save_custom($invoice_id, $db_array);
-			$result = true;
-            if ($result !== true) {
+            $result = true;
+            if ($result !== true)
+            {
                 $response = [
                     'success' => 0,
                     'validation_errors' => $result,
@@ -217,13 +241,15 @@ class Ajax extends Admin_Controller
     {
         $this->load->model('invoices/mdl_invoice_tax_rates');
 
-        if ($this->mdl_invoice_tax_rates->run_validation()) {
+        if ($this->mdl_invoice_tax_rates->run_validation())
+        {
             $this->mdl_invoice_tax_rates->save();
 
             $response = [
                 'success' => 1,
             ];
-        } else {
+        } else
+        {
             $response = [
                 'success' => 0,
                 'validation_errors' => $this->mdl_invoice_tax_rates->validation_errors,
@@ -237,14 +263,16 @@ class Ajax extends Admin_Controller
     {
         $this->load->model('invoices/mdl_invoices');
 
-        if ($this->mdl_invoices->run_validation()) {
+        if ($this->mdl_invoices->run_validation())
+        {
             $invoice_id = $this->mdl_invoices->create();
 
             $response = [
                 'success' => 1,
                 'invoice_id' => $invoice_id,
             ];
-        } else {
+        } else
+        {
             $this->load->helper('json_error');
             $response = [
                 'success' => 0,
@@ -253,36 +281,34 @@ class Ajax extends Admin_Controller
         }
 
         echo json_encode($response);
-	$ci =& get_instance();
-$resultSet8 =  $ci->db->query("SELECT * FROM `ip_settings` WHERE `setting_id` = 261");
-                        
-                         $class8 = $resultSet8->result_array();						 
-						 
-						 $sett_inv=$class8[0]['setting_value'];
-		
-	
+        $ci =& get_instance();
+        $resultSet8 = $ci->db->query("SELECT * FROM `ip_settings` WHERE `setting_id` = 261");
 
-	
-$cfinv44="UPDATE `ip_invoices` SET `invoice_number` = '".$sett_inv."' WHERE `ip_invoices`.`invoice_id` =".$invoice_id;
-$this->db->query($cfinv44);	
+        $class8 = $resultSet8->result_array();
 
-$sett_inv1=str_pad(($class8[0]['setting_value']+1),3,"0",STR_PAD_LEFT);
+        $sett_inv = $class8[0]['setting_value'];
 
-$cfinv5="UPDATE `ip_settings` SET `setting_value` = '".$sett_inv1."' WHERE `ip_settings`.`setting_id` = 261";
-$this->db->query($cfinv5);
+        $invoice_group_id = $this->mdl_invoices->get_invoice_group_id($invoice_id);
+        $invoice_number = $this->mdl_invoices->get_invoice_number($invoice_group_id);
+
+        $cfinv44 = "UPDATE `ip_invoices` SET `invoice_number` = '" . $invoice_number . "' WHERE `ip_invoices`.`invoice_id` =" . $invoice_id;
+        $this->db->query($cfinv44);
+
     }
 
     public function create_recurring()
     {
         $this->load->model('invoices/mdl_invoices_recurring');
 
-        if ($this->mdl_invoices_recurring->run_validation()) {
+        if ($this->mdl_invoices_recurring->run_validation())
+        {
             $this->mdl_invoices_recurring->save();
 
             $response = [
                 'success' => 1,
             ];
-        } else {
+        } else
+        {
             $this->load->helper('json_error');
             $response = [
                 'success' => 0,
@@ -364,7 +390,8 @@ $this->db->query($cfinv5);
         $client_id = $this->input->post('client_id');
         $client = $this->mdl_clients->where('ip_clients.client_id', $client_id)->get()->row();
 
-        if (!empty($client)) {
+        if (!empty($client))
+        {
             $invoice_id = $this->input->post('invoice_id');
 
             $db_array = [
@@ -377,7 +404,8 @@ $this->db->query($cfinv5);
                 'success' => 1,
                 'invoice_id' => $invoice_id,
             ];
-        } else {
+        } else
+        {
             $this->load->helper('json_error');
             $response = [
                 'success' => 0,
@@ -414,7 +442,8 @@ $this->db->query($cfinv5);
         $this->load->model('invoices/mdl_items');
         $this->load->model('invoices/mdl_invoice_tax_rates');
 
-        if ($this->mdl_invoices->run_validation()) {
+        if ($this->mdl_invoices->run_validation())
+        {
             $target_id = $this->mdl_invoices->save();
             $source_id = $this->input->post('invoice_id');
 
@@ -424,7 +453,8 @@ $this->db->query($cfinv5);
                 'success' => 1,
                 'invoice_id' => $target_id,
             ];
-        } else {
+        } else
+        {
             $this->load->helper('json_error');
             $response = [
                 'success' => 0,
@@ -461,14 +491,16 @@ $this->db->query($cfinv5);
         $this->load->model('invoices/mdl_items');
         $this->load->model('invoices/mdl_invoice_tax_rates');
 
-        if ($this->mdl_invoices->run_validation()) {
+        if ($this->mdl_invoices->run_validation())
+        {
             $target_id = $this->mdl_invoices->save();
             $source_id = $this->input->post('invoice_id');
 
             $this->mdl_invoices->copy_credit_invoice($source_id, $target_id);
 
             // Set source invoice to read-only
-            if ($this->config->item('disable_read_only') == false) {
+            if ($this->config->item('disable_read_only') == false)
+            {
                 $this->mdl_invoices->where('invoice_id', $source_id);
                 $this->mdl_invoices->update('ip_invoices', ['is_read_only' => '1']);
             }
@@ -484,7 +516,8 @@ $this->db->query($cfinv5);
                 'success' => 1,
                 'invoice_id' => $target_id,
             ];
-        } else {
+        } else
+        {
             $this->load->helper('json_error');
             $response = [
                 'success' => 0,
@@ -505,19 +538,22 @@ $this->db->query($cfinv5);
         $this->load->model('mdl_invoices');
 
         // Only continue if the invoice exists or no item id was provided
-        if ($this->mdl_invoices->get_by_id($invoice_id) || empty($item_id)) {
+        if ($this->mdl_invoices->get_by_id($invoice_id) || empty($item_id))
+        {
 
             // Delete invoice item
             $this->load->model('mdl_items');
             $item = $this->mdl_items->delete($item_id);
 
             // Check if deletion was successful
-            if ($item) {
+            if ($item)
+            {
 
                 $success = 1;
 
                 // Mark task as complete from invoiced
-                if (isset($item->item_task_id) && $item->item_task_id) {
+                if (isset($item->item_task_id) && $item->item_task_id)
+                {
                     $this->load->model('tasks/mdl_tasks');
                     $this->mdl_tasks->update_status(3, $item->item_task_id);
                 }

@@ -144,8 +144,22 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><?php echo anchor('duties/create_duties', trans('Add Dutie Slip')); ?></li>
-                        <li><?php echo anchor('duties/viewduties', trans('List Dutie Slip')); ?></li>
-                    
+                        <li><?php echo anchor('duties/viewduties', trans('List Dutie Slip')); ?></li>                   
+
+                    </ul>
+                </li>
+            <?php endif; ?>
+            <?php if($_SESSION['user_type'] == 1 ||in_array('Po',$privilege)): ?> 
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-caret-down"></i> &nbsp;
+                        <span class="hidden-md"><?php _trans('Pending List'); ?></span>
+                        <i class="visible-md-inline fa fa-bar-chart"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        <li><?php echo anchor('customm/pendinglist', 'Pending List v1'); ?></li>
+                        <li><?php echo anchor('customm/pendinglist_v2', 'Pending List v2'); ?></li>              
 
                     </ul>
                 </li>
